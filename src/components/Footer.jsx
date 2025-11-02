@@ -1,12 +1,12 @@
 const Footer = () => {
   return (
             <footer class="bg-gray-900 text-gray-300 py-6 mt-10 text-center">
-                <p class="text-sm">Diplomatura Progrmacion web con JAVASCRIPT, NODO Catamarca Modulo 4 TP3</p>
+                <p class="text-sm">Diplomatura Progrmacion web con JAVASCRIPT, NODO Catamarca Modulo 4 TP4</p>
                 <p class="text-sm">&copy; 2025. Todos los derechos reservados.</p>
                 
                 <p class="text-sm mb-2">Desarrollado por <span class="font-semibold">Ezequiel Esteban Miranda</span></p>
                 <a 
-                    href="https://github.com/IZI003/Diplo-Mod4-TP3" 
+                    href="https://github.com/IZI003/Diplo-Mod4-TP4" 
                     target="_blank" 
                     class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
                 >
