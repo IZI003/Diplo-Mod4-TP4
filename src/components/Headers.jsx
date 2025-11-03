@@ -7,7 +7,7 @@ const Headers = () => {
   return (
     <div className="flex flex-col items-center gap-4 py-6 text-2xl">
       <h1 className="text-3xl font-bold" style={{ backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}>
-        🏪 Tienda React
+        🏪 Personajes Favoritos de Rick And Morty
       </h1>
 
       <button
