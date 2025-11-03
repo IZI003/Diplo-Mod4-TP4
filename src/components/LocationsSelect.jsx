@@ -9,6 +9,8 @@ const LocationsSelect = () => {
   const { selectedLocation, setSelectedLocation } = UseLocalizacionContext();
 
   const loadLocations = useCallback(async () => {
+    setSelectedLocation("Earth (Evil Rick's Target Dimension)"); // solo para que no quede la pantalla vacia selecciono como default una de las dimenciones
+
     if (cacheRef.current) {
       setLocations(cacheRef.current);
       setLoading(false);
@@ -18,8 +20,7 @@ const LocationsSelect = () => {
     cacheRef.current = data;
     setLocations(data);
     setLoading(false);
-    setSelectedLocation("Earth (Evil Rick's Target Dimension)"); // solo para que no quede la pantalla vacia selecciono como default una de las dimenciones
-  },[]);
+  },[setSelectedLocation]);
 
   useEffect(() => {
     loadLocations();
