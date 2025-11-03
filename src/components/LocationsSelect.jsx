@@ -31,13 +31,17 @@ const LocationsSelect = () => {
   if (loading) return <p>Cargando localidades...</p>;
 
   return (
-    <div>
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 transition-colors duration-300">
       <h3>Seleccionar Localidad</h3>
-      <select value={selectedLocation} onChange={handleChange} style={{ backgroundColor: "var(--card-bg)", color: "var(--text-color)" }}>
+      <select 
+      value={selectedLocation} 
+      onChange={handleChange} 
+      className="shadow-lg rounded-xl p-2 flex flex-col items-center transition-colors duration-300 mt-3 px-4 py-2 "
+      style={{ backgroundColor: "var(--card-bg)", color: "var(--text-color)" }}>
         <option value="">-- Selecciona una localidad --</option>
         {locations.map((loc) => (
           <option key={loc.id} value={loc.name}>
-            {loc.name} — {loc.dimension}
+            {loc.name} 
           </option>
         ))}
       </select>
