@@ -14,7 +14,7 @@ const Headers = () => {
         onClick={toggleModal}
         className="px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 transform hover:scale-105 shadow-md"
       >
-        Ver carrito
+        Ver Favoritos
       </button>
       <ThemeButton />
     </div>

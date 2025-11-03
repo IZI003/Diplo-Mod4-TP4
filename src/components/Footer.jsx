@@ -1,16 +1,16 @@
 const Footer = () => {
   return (
-            <footer class="bg-gray-900 text-gray-300 py-6 mt-10 text-center">
-                <p class="text-sm">Diplomatura Progrmacion web con JAVASCRIPT, NODO Catamarca Modulo 4 TP4</p>
-                <p class="text-sm">&copy; 2025. Todos los derechos reservados.</p>
+            <footer className="bg-gray-900 text-gray-300 py-6 mt-10 text-center">
+                <p className="text-sm">Diplomatura Progrmacion web con JAVASCRIPT, NODO Catamarca Modulo 4 TP4</p>
+                <p className="text-sm">&copy; 2025. Todos los derechos reservados.</p>
                 
-                <p class="text-sm mb-2">Desarrollado por <span class="font-semibold">Ezequiel Esteban Miranda</span></p>
+                <p className="text-sm mb-2">Desarrollado por <span className="font-semibold">Ezequiel Esteban Miranda</span></p>
                 <a 
                     href="https://github.com/IZI003/Diplo-Mod4-TP4" 
                     target="_blank" 
-                    class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38
                         0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
                         -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53

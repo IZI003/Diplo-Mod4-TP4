@@ -3,7 +3,7 @@ import { UseModalContext } from "../context/ModalContext";
 
 const CartModal = () => {
   const { IsmodalOpen, toggleModal } = UseModalContext();
-  const { cart, removeFromCart, updateQuantity, totalPrice } = UseCartContext();
+  const { cart, removeFromCart } = UseCartContext();
 
   if (!IsmodalOpen) return null;
 
@@ -15,44 +15,30 @@ const CartModal = () => {
   >
     <div className="text-4xl p-4 pb-6 pt-6">
         <h1 className="font-extrabold mb-6 text-center  tracking-wide border-b pb-3 border-indigo-500">
-        🛒 Carrito
+        Favoritos
         </h1>
     </div>
-    {cart.length === 0 ? (
-      <p className="text-center text-lg">No hay productos en el carrito</p>
-    ) : (
+    {Array.isArray(cart) && cart.length > 0 ?(
       <div className="space-y-4 m-4 p-4">
-        {cart.map((item) => (
+        {
+        cart.map((item) => (
           <div
             key={item.id}
             className="flex items-center p-4 justify-between rounded-xl shadow-md transition-colors duration-300" style={{ backgroundColor: "var(--card-bg)", color: "var(--text-color)" }}
           >
             <div className="flex items-center gap-4">
               <img
-                src={item.img}
+                src={item.image}
                 alt={item.name}
                 className="w-20 h-20 rounded-lg object-cover"
               />
               <div>
                 <p className="font-semibold text-lg">{item.name}</p>
-                <p className="text-sm opacity-80">${item.price}</p>
+                <p className="text-sm opacity-80">{item.species}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                className="px-3 py-1 rounded-md text-lg cursor-pointer transition-colors duration-200"
-              >
-                −
-              </button>
-              <span className="text-lg">{item.quantity}</span>
-              <button
-                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                className="px-3 py-1 rounded-md text-lg cursor-pointer transition-colors duration-200"
-              >
-                +
-              </button>
               <button
                 onClick={() => removeFromCart(item.id)}
                 className="ml-3 px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md transition-colors duration-200"
@@ -62,12 +48,10 @@ const CartModal = () => {
             </div>
           </div>
         ))}
-
-        <p className="text-right text-2xl font-bold mt-6 border-t pt-4">
-          Total: ${totalPrice}
-        </p>
       </div>
-    )}
+    ) : (
+      <p className="text-center text-lg">No hay tarjetas en la lista</p>
+    ) }
 
     {/* 🔹 Botón de cerrar con estilo más moderno y más separación */}
     <div className="flex justify-center mt-6">

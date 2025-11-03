@@ -1,0 +1,47 @@
+import { useEffect, useRef, useState, useCallback } from "react";
+import { UseLocalizacionContext } from "../context/LocationContext";
+import { getAllLocations } from "../service/locationService";
+
+const LocationsSelect = () => {
+  const [locations, setLocations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const cacheRef = useRef(null);
+  const { selectedLocation, setSelectedLocation } = UseLocalizacionContext();
+
+  const loadLocations = useCallback(async () => {
+    if (cacheRef.current) {
+      setLocations(cacheRef.current);
+      setLoading(false);
+      return;
+    }
+    const data = await getAllLocations();
+    cacheRef.current = data;
+    setLocations(data);
+    setLoading(false);
+    setSelectedLocation("Earth (Evil Rick's Target Dimension)"); // solo para que no quede la pantalla vacia selecciono como default una de las dimenciones
+  },[]);
+
+  useEffect(() => {
+    loadLocations();
+  }, [loadLocations]);
+
+  const handleChange = (e) => setSelectedLocation(e.target.value);
+
+  if (loading) return <p>Cargando localidades...</p>;
+
+  return (
+    <div>
+      <h3>Seleccionar Localidad</h3>
+      <select value={selectedLocation} onChange={handleChange} style={{ backgroundColor: "var(--card-bg)", color: "var(--text-color)" }}>
+        <option value="">-- Selecciona una localidad --</option>
+        {locations.map((loc) => (
+          <option key={loc.id} value={loc.name}>
+            {loc.name} — {loc.dimension}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
+export default LocationsSelect;
